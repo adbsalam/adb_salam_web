@@ -89,11 +89,11 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.example" "\0"
+            VALUE "CompanyName", "com.adb.salam" "\0"
             VALUE "FileDescription", "adb_salam_web" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "adb_salam_web" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2022 com.example. All rights reserved." "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2022 com.adb.salam. All rights reserved." "\0"
             VALUE "OriginalFilename", "adb_salam_web.exe" "\0"
             VALUE "ProductName", "adb_salam_web" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"

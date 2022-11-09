@@ -8,7 +8,7 @@
 PRODUCT_NAME = adb_salam_web
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.example.adbSalamWeb
+PRODUCT_BUNDLE_IDENTIFIER = com.adb.salam.adbSalamWeb
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2022 com.example. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2022 com.adb.salam. All rights reserved.
