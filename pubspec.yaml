@@ -31,11 +31,8 @@ environment:
 dependencies:
   loading_animation_widget:
   flutter_animate: ^2.0.1
-  vertical_tabs_flutter: ^1.0.0
   animated_toggle_switch: ^0.5.2
-  flutter_gradients: ^1.0.0+3
-  simple_animations: ^5.0.0+2
-
+  google_fonts: ^2.1.0
   flutter:
     sdk: flutter
 
@@ -66,6 +63,8 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  assets:
+   - assets/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
