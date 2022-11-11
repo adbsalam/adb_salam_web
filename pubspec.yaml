@@ -29,6 +29,10 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  loading_animation_widget:
+  flutter_animate: ^2.0.1
+  animated_toggle_switch: ^0.5.2
+  google_fonts: ^2.1.0
   flutter:
     sdk: flutter
 
@@ -51,6 +55,7 @@ dev_dependencies:
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
+
 # The following section is specific to Flutter packages.
 flutter:
 
@@ -58,6 +63,8 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  assets:
+   - assets/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
