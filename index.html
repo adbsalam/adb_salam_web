@@ -19,9 +19,24 @@
   <script>
     var serviceWorkerVersion = '2842296824';
   </script>
-  <script src="main.dart.js" defer></script>
+  <script src="flutter.js" defer></script>
 </head>
 <body>
-  
+   <script>
+         window.addEventListener('load', function (ev) {
+             // Download main.dart.js
+             _flutter.loader.loadEntrypoint({
+                 serviceWorker: {
+                     serviceWorkerVersion: serviceWorkerVersion,
+                 }
+             }).then(function (engineInitializer) {
+                 // Initialize the Flutter engine
+                 return engineInitializer.initializeEngine();
+             }).then(function (appRunner) {
+                 // Run the app
+                 return appRunner.runApp();
+             });
+         });
+      </script>
 </body>
 </html>
