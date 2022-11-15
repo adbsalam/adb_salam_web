@@ -1,3 +1,6 @@
+
+import 'package:adb_salam_web/themeUtil/AppColors.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -77,11 +80,11 @@ class _HomeScreen extends State<HomeScreen> {
             child: Column(
               children: [
                 sideNavHome().animate().fadeIn(duration: animationDuration),
-                sideNavWork().animate().fadeIn(delay: animationDuration, duration: animationDuration).slide(duration: animationDuration),
-                sideNavBlogs().animate().fadeIn(delay: const Duration(milliseconds: 400), duration: animationDuration).slide(duration: animationDuration),
-                sideNavVideos().animate().fadeIn(delay: const Duration(milliseconds: 600), duration: animationDuration).slide(duration: animationDuration),
-                sideNavContact().animate().fadeIn(delay: const Duration(milliseconds: 800), duration: animationDuration).slide(duration: animationDuration),
-                sideNavReviews().animate().fadeIn(delay: const Duration(milliseconds: 1000), duration: animationDuration).slide(duration: animationDuration),
+                sideNavWork().animate().fadeIn( duration: animationDuration),
+                sideNavBlogs().animate().fadeIn(duration: animationDuration),
+                sideNavVideos().animate().fadeIn( duration: animationDuration),
+                sideNavContact().animate().fadeIn(duration: animationDuration),
+                sideNavReviews().animate().fadeIn( duration: animationDuration)
               ],
             ),
           ),
@@ -131,70 +134,91 @@ class _HomeScreen extends State<HomeScreen> {
                           )
                       ),
 
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          socialMediaContainer("assets/ic_fb.png"),
+                          socialMediaContainer("assets/ic_in.png"),
+                          socialMediaContainer("assets/ic_ig.png"),
+                          socialMediaContainer("assets/ic_git.png")
+                        ],
+                      ),
+
                       Row(children: [
-                        Expanded(
-                            flex: 1,
-                            child: Card(
-                              color: Color(0xffe9dffe),
-                              margin: EdgeInsets.all(10),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15.0),
-                              ),
-                              elevation: 5,
-                              child: Container(
-                                height: 200,
-                                decoration: BoxDecoration(
-                                    // gradient: FlutterGradients.lilyMeadow(),
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                              ),
-                        )),
+                        stackContainer("assets/ic_kt.png", "kotlin" , AppColors().getPurpleGradient()).animate().shimmer(duration: const Duration(seconds: 2)),
+                        stackContainer("assets/ic_java.png", "Java" , AppColors().getPurpleGradient()).animate().shimmer(duration: const Duration(seconds: 2)),
+                        stackContainer("assets/ic_swift.png", "Swift" , AppColors().getPurpleGradient()).animate().shimmer(duration: const Duration(seconds: 2)),
+                      ],),
 
-                        Expanded(
-                            flex: 1,
-                            child: Card(
-                              color: Color(0xfffee9df),
-                              margin: EdgeInsets.all(10),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15.0),
-                              ),
-                              elevation: 5,
-                              child: Container(
-                                height: 200,
-                                decoration: BoxDecoration(
-                                  // gradient: FlutterGradients.lilyMeadow(),
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                              ),
-                            )),
+                      Row(children: [
+                        stackContainer("assets/ic_docker.png", "Docker" , AppColors().getPurpleGradient()).animate().shimmer(duration: const Duration(seconds: 2)),
+                        stackContainer("assets/ic_pipeline.png", "Ci-CD" , AppColors().getPurpleGradient()).animate().shimmer(duration: const Duration(seconds: 2)),
+                        stackContainer("assets/ic_shell.png", "Shell" , AppColors().getPurpleGradient()).animate().shimmer(duration: const Duration(seconds: 2)),
+                      ],),
 
-                        Expanded(
-                            flex: 1,
-                            child: Card(
-                              color: Color(0xfffef3de),
-                              margin: EdgeInsets.all(10),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15.0),
-                              ),
-                              elevation: 5,
-                              child: Container(
-                                height: 200,
-                                decoration: BoxDecoration(
-                                  // gradient: FlutterGradients.lilyMeadow(),
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                              ),
-                            )),
-                      ],)
-
-
+                      Row(children: [
+                        stackContainer("assets/ic_flutter.png", "Flutter" , AppColors().getPurpleGradient()).animate().shimmer(duration: const Duration(seconds: 2)),
+                        stackContainer("assets/ic_git.png", "Git" , AppColors().getPurpleGradient()).animate().shimmer(duration: const Duration(seconds: 2)),
+                        stackContainer("assets/ic_git.png", "Git" , AppColors().getPurpleGradient()).animate().shimmer(duration: const Duration(seconds: 2)),
+                      ],),
                     ],
                   ),
               ),
-
             ],
           ),
         ));
+  }
+
+  Container socialMediaContainer(String image){
+   return Container(
+      width: 40,
+      height: 40,
+      margin: const EdgeInsets.only(top: 10, bottom: 20, left: 5, right: 5),
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        image: DecorationImage(
+            image: AssetImage(image),
+            fit: BoxFit.contain
+        ),
+      ),
+    );
+  }
+
+  Expanded stackContainer(String asset, String name, LinearGradient gradient){
+   return Expanded(
+      flex: 1,
+      child:  Container(
+        margin: EdgeInsets.all(10),
+        height: 100,
+        decoration: BoxDecoration(
+          gradient: gradient,
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: stackDetails(asset, name)
+      ),
+    );
+  }
+
+  Column stackDetails(String asset, String name){
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          width: 30,
+          height: 30,
+          margin: const EdgeInsets.only(bottom: 5),
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            image: DecorationImage(
+              image: AssetImage(asset),
+            ),
+          ),
+        ),
+
+        Text(name, style: const TextStyle(fontSize: 14, color: Colors.white, fontWeight: FontWeight.w600),)
+      ],
+    );
   }
 
   Widget cardTop(){
