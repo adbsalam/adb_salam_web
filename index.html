@@ -13,18 +13,21 @@
   <meta name="apple-mobile-web-app-title" content="adb_salam_web">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
   <title>adb_salam_web</title>
   <link rel="manifest" href="manifest.json">
-
   <script>
-    // The value below is injected by flutter build, do not touch.
     var serviceWorkerVersion = '2842296824';
   </script>
-  <!-- This script adds the flutter initialization JS code -->
-  <script src="main.dart.js" defer></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('flutter-first-frame', function () {
+        navigator.serviceWorker.register('flutter_service_worker.js');
+      });
+    }
+  </script>
+  <script src="main.dart.js" type="application/javascript"></script>
 </head>
 <body>
   
